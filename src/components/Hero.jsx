@@ -21,8 +21,8 @@ export function Hero() {
               and tastes like anything you can imagine.
             </p>
           </div>
-          <Button href="#" className="mt-10 w-full sm:hidden">
-            Talk to us
+          <Button href="/#speakers" className="mt-10 w-full sm:hidden">
+            Place an Order
           </Button>
           <dl className="mt-10 grid grid-cols-2 gap-x-10 gap-y-6 sm:mt-16 sm:gap-x-16 sm:gap-y-10 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
             {[

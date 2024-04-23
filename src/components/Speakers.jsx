@@ -7,16 +7,17 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
+import Link from 'next/link'
 
 import cartoon from '@/images/cakes/cartoon.jpeg'
 import unicorn_a from '@/images/cakes/unicorn_a.jpeg'
 import gender_reveal_a from '@/images/cakes/gender_reveal_a.jpeg'
 import celebrations from '@/images/cakes/celebrations.jpeg'
 import tuxedo_a from '@/images/cakes/tuxedo_a.jpeg'
-import tuxedo_b from '@/images/cakes/tuxedo_b.jpeg'
 import mom_to_be_a from '@/images/cakes/mom_to_be_a.jpeg'
 import whimsical_a from '@/images/cakes/whimsical_a.jpeg'
-import Link from 'next/link'
+import unique from '@/images/cakes/unique.jpeg'
+import pastry from '@/images/cakes/pastry.jpeg'
 
 export const days = [
   {
@@ -72,56 +73,28 @@ export const days = [
     name: 'Custom Cake',
     date: 'Just for you',
     dateTime: '2022-04-05',
-    speakers: [],
+    speakers: [
+      {
+        name: 'Need something Unique and new?',
+        role: 'We can make it for you',
+        image: unique,
+        id: 'product/custom',
+      },
+    ],
   },
-  // {
-  //   name: 'Pastries',
-  //   date: 'Small bites',
-  //   dateTime: '2022-04-05',
-  //   speakers: [
-  //     {
-  //       name: 'Ferrero Rocher Pastry',
-  //       role: 'Made with Ferrero Rocher chocolates',
-  //       image: pastry1,
-  //     },
-  //     {
-  //       name: 'Ferrero Rocher Pastry',
-  //       role: 'Made with Ferrero Rocher chocolates',
-  //       image: pastry1,
-  //     },
-  //     {
-  //       name: 'Ferrero Rocher Pastry',
-  //       role: 'Made with Ferrero Rocher chocolates',
-  //       image: pastry1,
-  //     },
-  //     {
-  //       name: 'Macaroons',
-  //       role: 'Made with almonds and sugar',
-  //       image: pastry2,
-  //     },
-  //     {
-  //       name: 'Cream Puffs',
-  //       role: 'Made with cream and sugar',
-  //       image: pastry3,
-  //       allergen: 'Contains nuts',
-  //     },
-  //     {
-  //       name: 'Pain Au Chocolat',
-  //       role: 'Made with chocolate and butter',
-  //       image: pastry4,
-  //     },
-  //     {
-  //       name: 'Red Velvet Pastry',
-  //       role: 'Made with red velvet and cream cheese',
-  //       image: pastry5,
-  //     },
-  //     {
-  //       name: 'Donut Sprinkles',
-  //       role: 'Made with donuts and sprinkles',
-  //       image: pastry6,
-  //     },
-  //   ],
-  // },
+  {
+    name: 'More Coming soon',
+    date: 'Pastries, Cupcakes ..',
+    dateTime: '2022-04-06',
+    speakers: [
+      {
+        name: 'Pastry',
+        role: '...',
+        image: pastry,
+        id: '/comingsoon',
+      },
+    ],
+  },
 ]
 
 function ImageClipPaths({ id, ...props }) {
@@ -236,7 +209,7 @@ export function Speakers() {
                 unmount={false}
               >
                 {day.speakers.map((speaker, speakerIndex) => (
-                  <Link href={speaker.id}>
+                  <Link href={speaker.id} key={speakerIndex}>
                     <div key={speakerIndex}>
                       <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl">
                         <div
