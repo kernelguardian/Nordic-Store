@@ -2,62 +2,127 @@ import { useState } from 'react'
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
-import cake1 from '../images/cakes/cake1.jpeg'
+import gender_reveal_a from '../images/cakes/gender_reveal_a.jpeg'
+import gender_reveal_b from '../images/cakes/gender_reveal_b.jpeg'
+import gender_reveal_c from '../images/cakes/gender_reveal_c.jpeg'
 
-const product = {
-  name: 'Zip Tote Basket',
-  // price: '$140',
-  rating: 4,
-  images: [
-    {
-      id: 1,
-      name: 'Angled view',
-      src: 'src/images/cakes/cake1.jpeg',
-      alt: 'Angled front view with bag zipped and handles upright.',
-    },
-    // More images...
-  ],
-  colors: [
-    {
-      name: 'Washed Black',
-      bgColor: 'bg-gray-700',
-      selectedColor: 'ring-gray-700',
-    },
-    { name: 'White', bgColor: 'bg-white', selectedColor: 'ring-gray-400' },
-    {
-      name: 'Washed Gray',
-      bgColor: 'bg-gray-500',
-      selectedColor: 'ring-gray-500',
-    },
-  ],
-  description: `
-    <p>The Zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>
+import unicorn_a from '../images/cakes/unicorn_a.jpeg'
+import cartoon from '../images/cakes/cartoon.jpeg'
+
+const products = {
+  unicorn: {
+    name: 'Unicorn Cake',
+    // price: '$140',
+    rating: 4,
+    images: [
+      {
+        id: 1,
+        name: 'Angled view',
+        src: unicorn_a,
+        alt: 'Image of cake',
+      },
+      // More images...
+    ],
+
+    description: `
+    <p>Pefect for people who like unicorn cakes</p>
   `,
-  details: [
-    {
-      name: 'Features',
-      items: [
-        'Multiple strap configurations',
-        'Spacious interior with top zip',
-        'Leather handle and tabs',
-        'Interior dividers',
-        'Stainless strap loops',
-        'Double stitched construction',
-        'Water-resistant',
-      ],
-    },
-    // More sections...
-  ],
+    details: [
+      {
+        name: 'Allergen Information',
+        items: [
+          'Made in a facility that processes peanuts',
+          '..',
+          '....',
+          'Anything Else about allergen',
+        ],
+      },
+      // More sections...
+    ],
+  },
+  cartoon: {
+    name: 'Cartoon Cake',
+    // price: '$140',
+    rating: 4,
+    images: [
+      {
+        id: 1,
+        name: 'Angled view',
+        src: cartoon,
+        alt: 'Image of cake',
+      },
+      // More images...
+    ],
+
+    description: `
+    <p>Pefect for people who like Cartoon cakes</p>
+  `,
+    details: [
+      {
+        name: 'Allergen Information',
+        items: [
+          'Made in a facility that processes peanuts',
+          '..',
+          '....',
+          'Anything Else about allergen',
+        ],
+      },
+      // More sections...
+    ],
+  },
+  gender_reveal: {
+    name: 'Gender Reveal Cake',
+    // price: '$140',
+    rating: 4,
+    images: [
+      {
+        id: 1,
+        name: 'Angled view',
+        src: gender_reveal_a,
+        alt: 'Image of cake',
+      },
+      {
+        id: 2,
+        name: 'Angled view',
+        src: gender_reveal_b,
+        alt: 'Image of cake',
+      },
+      {
+        id: 3,
+        name: 'Angled view',
+        src: gender_reveal_c,
+        alt: 'Image of cake',
+      },
+      // More images...
+    ],
+
+    description: `
+    <p>Pefect for people who like Cartoon cakes</p>
+  `,
+    details: [
+      {
+        name: 'Allergen Information',
+        items: [
+          'Made in a facility that processes peanuts',
+          '..',
+          '....',
+          'Anything Else about allergen',
+        ],
+      },
+      // More sections...
+    ],
+  },
 }
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ImageGallery() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
-
+export default function ImageGallery({ params }) {
+  const product = products[params.product]
+  console.log(params.product)
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -99,11 +164,20 @@ export default function ImageGallery() {
             <Tab.Panels className="aspect-h-1 aspect-w-1 w-full">
               {product.images.map((image) => (
                 <Tab.Panel key={image.id}>
-                  <img
+                  {/* <img
                     src={image.src}
                     alt={image.alt}
                     className="h-full w-full object-cover object-center sm:rounded-lg"
-                  />
+                  /> */}
+
+                  <Image
+                    src={image.src}
+                    quality={100}
+                    width={100}
+                    height={50}
+                    alt={image.alt}
+                    className="h-full w-full object-cover object-center sm:rounded-lg"
+                  ></Image>
                 </Tab.Panel>
               ))}
             </Tab.Panels>
@@ -152,70 +226,6 @@ export default function ImageGallery() {
                 dangerouslySetInnerHTML={{ __html: product.description }}
               />
             </div>
-
-            <form className="mt-6">
-              {/* Colors */}
-              <div>
-                <h3 className="text-sm text-gray-600">Color</h3>
-
-                <RadioGroup
-                  value={selectedColor}
-                  onChange={setSelectedColor}
-                  className="mt-2"
-                >
-                  <RadioGroup.Label className="sr-only">
-                    Choose a color
-                  </RadioGroup.Label>
-                  <span className="flex items-center space-x-3">
-                    {product.colors.map((color) => (
-                      <RadioGroup.Option
-                        key={color.name}
-                        value={color}
-                        className={({ active, checked }) =>
-                          classNames(
-                            color.selectedColor,
-                            active && checked ? 'ring ring-offset-1' : '',
-                            !active && checked ? 'ring-2' : '',
-                            'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none',
-                          )
-                        }
-                      >
-                        <RadioGroup.Label as="span" className="sr-only">
-                          {color.name}
-                        </RadioGroup.Label>
-                        <span
-                          aria-hidden="true"
-                          className={classNames(
-                            color.bgColor,
-                            'h-8 w-8 rounded-full border border-black border-opacity-10',
-                          )}
-                        />
-                      </RadioGroup.Option>
-                    ))}
-                  </span>
-                </RadioGroup>
-              </div>
-
-              <div className="mt-10 flex">
-                <button
-                  type="submit"
-                  className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                >
-                  Add to bag
-                </button>
-
-                <button
-                  type="button"
-                  className="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
-                >
-                  <HeartIcon
-                    className="h-6 w-6 flex-shrink-0"
-                    aria-hidden="true"
-                  />
-                  <span className="sr-only">Add to favorites</span>
-                </button>
-              </div>
-            </form>
 
             <section aria-labelledby="details-heading" className="mt-12">
               <h2 id="details-heading" className="sr-only">
