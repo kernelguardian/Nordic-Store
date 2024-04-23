@@ -3,15 +3,17 @@ import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 
+import cake1 from '../images/cakes/cake1.jpeg'
+
 const product = {
   name: 'Zip Tote Basket',
-  price: '$140',
+  // price: '$140',
   rating: 4,
   images: [
     {
       id: 1,
       name: 'Angled view',
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg',
+      src: 'src/images/cakes/cake1.jpeg',
       alt: 'Angled front view with bag zipped and handles upright.',
     },
     // More images...

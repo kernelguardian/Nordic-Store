@@ -8,12 +8,6 @@ import clsx from 'clsx'
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
 
-import cake1 from '@/images/cakes/cake1.jpeg'
-import cake2 from '@/images/cakes/cake2.jpeg'
-import cake3 from '@/images/cakes/cake3.jpeg'
-import cake4 from '@/images/cakes/cake4.jpeg'
-import cake5 from '@/images/cakes/cake5.jpeg'
-import cake6 from '@/images/cakes/cake6.jpeg'
 import cartoon from '@/images/cakes/cartoon.jpeg'
 import unicorn_a from '@/images/cakes/unicorn_a.jpeg'
 import gender_reveal_a from '@/images/cakes/gender_reveal_a.jpeg'
@@ -22,8 +16,9 @@ import tuxedo_a from '@/images/cakes/tuxedo_a.jpeg'
 import tuxedo_b from '@/images/cakes/tuxedo_b.jpeg'
 import mom_to_be_a from '@/images/cakes/mom_to_be_a.jpeg'
 import whimsical_a from '@/images/cakes/whimsical_a.jpeg'
+import Link from 'next/link'
 
-const days = [
+export const days = [
   {
     name: 'Special Cakes',
     date: 'For special occasions',
@@ -33,36 +28,43 @@ const days = [
         name: 'Unicorn Cake',
         role: 'Made with rainbows and sprinkles',
         image: unicorn_a,
+        id: 'products/unicorn',
       },
       {
         name: 'Cartoon Cake',
         role: '...',
         image: cartoon,
+        id: 'products/cartoon',
       },
       {
         name: 'Celebration Cake',
         role: 'Dark chocolate cake with chocolate chips',
         image: celebrations,
+        id: 'products/celebrations',
       },
       {
         name: 'Gender Reveal Theme Cake',
         role: 'Made with caramel and cream',
         image: gender_reveal_a,
+        id: 'products/gender_reveal',
       },
       {
         name: 'Mom to be Cake',
         role: 'Made with cheese and cream',
         image: mom_to_be_a,
+        id: 'products/mom_to_be',
       },
       {
         name: 'Tuxedo Cake',
         role: 'Made with black forest cherries and chocolate',
         image: tuxedo_a,
+        id: 'products/tuxedo',
       },
       {
         name: 'Whimsical Cake',
         role: 'Made with black forest cherries and chocolate',
         image: whimsical_a,
+        id: 'products/whimsical',
       },
     ],
   },
@@ -234,50 +236,49 @@ export function Speakers() {
                 unmount={false}
               >
                 {day.speakers.map((speaker, speakerIndex) => (
-                  <div key={speakerIndex}>
-                    <div
-                      className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl"
-                      onClick={(e) => {
-                        console.log('clicked', e)
-                      }}
-                    >
-                      <div
-                        className={clsx(
-                          'absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
-                          [
-                            'border-blue-300',
-                            'border-indigo-300',
-                            'border-sky-300',
-                          ][speakerIndex % 3],
-                        )}
-                      />
-                      <div
-                        className="absolute inset-0 bg-indigo-50"
-                        style={{ clipPath: `url(#${id}-${speakerIndex % 3})` }}
-                      >
-                        <Image
-                          className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
-                          src={speaker.image}
-                          alt=""
-                          priority
-                          sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  <Link href={speaker.id}>
+                    <div key={speakerIndex}>
+                      <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl">
+                        <div
+                          className={clsx(
+                            'absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
+                            [
+                              'border-blue-300',
+                              'border-indigo-300',
+                              'border-sky-300',
+                            ][speakerIndex % 3],
+                          )}
                         />
+                        <div
+                          className="absolute inset-0 bg-indigo-50"
+                          style={{
+                            clipPath: `url(#${id}-${speakerIndex % 3})`,
+                          }}
+                        >
+                          <Image
+                            className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
+                            src={speaker.image}
+                            alt=""
+                            priority
+                            sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <h3 className="mt-8 font-display text-xl font-bold tracking-tight text-slate-900">
-                      {speaker.name}
-                    </h3>
-                    <p className="mt-1 text-base tracking-tight text-slate-500">
-                      {speaker.role}
-                    </p>
-                    {/* <p className="mt-1 text-base tracking-tight text-slate-400">
+                      <h3 className="mt-8 font-display text-xl font-bold tracking-tight text-slate-900">
+                        {speaker.name}
+                      </h3>
+                      <p className="mt-1 text-base tracking-tight text-slate-500">
+                        {speaker.role}
+                      </p>
+                      {/* <p className="mt-1 text-base tracking-tight text-slate-400">
                       <span className="font-medium text-slate-500">
                         Allergen Information
                       </span>
                       <br></br>
                       {speaker.allergen}
                     </p> */}
-                  </div>
+                    </div>
+                  </Link>
                 ))}
               </Tab.Panel>
             ))}
