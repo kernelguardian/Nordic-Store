@@ -2,16 +2,119 @@ import { useState } from 'react'
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
-
-import gender_reveal_a from '../images/cakes/gender_reveal_a.jpeg'
-import gender_reveal_b from '../images/cakes/gender_reveal_b.jpeg'
-import gender_reveal_c from '../images/cakes/gender_reveal_c.jpeg'
-
-import unicorn_a from '../images/cakes/unicorn_a.jpeg'
-import cartoon from '../images/cakes/cartoon.jpeg'
 
 const products = {
+  whimsical: {
+    name: 'Whimsical Cake',
+    // price: '$140',
+    rating: 4,
+    images: [
+      {
+        id: 1,
+        name: 'Angled view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/whimsical_a.jpeg',
+        alt: 'Image of cake',
+      },
+      {
+        id: 2,
+        name: 'Angled view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/whimsical_b.jpeg',
+        alt: 'Image of cake',
+      },
+      {
+        id: 3,
+        name: 'Angled view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/whimsical_c.jpeg',
+        alt: 'Image of cake',
+      },
+
+      // More images...
+    ],
+
+    description: `
+    <p>Pefect for people who like Celebrations cakes</p>
+  `,
+    details: [
+      {
+        name: 'Allergen Information',
+        items: [
+          'Made in a facility that processes peanuts',
+          '..',
+          '....',
+          'Anything Else about allergen',
+        ],
+      },
+      // More sections...
+    ],
+  },
+  tuxedo: {
+    name: 'Tuxedo Cake',
+    // price: '$140',
+    rating: 4,
+    images: [
+      {
+        id: 1,
+        name: 'Angled view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/tuxedo_a.jpeg',
+        alt: 'Image of cake',
+      },
+      {
+        id: 2,
+        name: 'Angled view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/tuxedo_b.jpeg',
+        alt: 'Image of cake',
+      },
+
+      // More images...
+    ],
+
+    description: `
+    <p>Pefect for people who like Celebrations cakes</p>
+  `,
+    details: [
+      {
+        name: 'Allergen Information',
+        items: [
+          'Made in a facility that processes peanuts',
+          '..',
+          '....',
+          'Anything Else about allergen',
+        ],
+      },
+      // More sections...
+    ],
+  },
+  celebrations: {
+    name: 'Celebration Cake',
+    // price: '$140',
+    rating: 4,
+    images: [
+      {
+        id: 1,
+        name: 'Angled view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/celebrations.jpeg',
+        alt: 'Image of cake',
+      },
+
+      // More images...
+    ],
+
+    description: `
+    <p>Pefect for people who like Celebrations cakes</p>
+  `,
+    details: [
+      {
+        name: 'Allergen Information',
+        items: [
+          'Made in a facility that processes peanuts',
+          '..',
+          '....',
+          'Anything Else about allergen',
+        ],
+      },
+      // More sections...
+    ],
+  },
   unicorn: {
     name: 'Unicorn Cake',
     // price: '$140',
@@ -20,7 +123,13 @@ const products = {
       {
         id: 1,
         name: 'Angled view',
-        src: unicorn_a,
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/unicorn_a.jpeg',
+        alt: 'Image of cake',
+      },
+      {
+        id: 2,
+        name: 'Angled view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/unicorn_b.jpeg',
         alt: 'Image of cake',
       },
       // More images...
@@ -49,11 +158,10 @@ const products = {
     images: [
       {
         id: 1,
-        name: 'Angled view',
-        src: cartoon,
-        alt: 'Image of cake',
+        name: 'Front view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/cartoon.jpeg',
+        alt: 'Image of Cartoon Cake',
       },
-      // More images...
     ],
 
     description: `
@@ -80,19 +188,55 @@ const products = {
       {
         id: 1,
         name: 'Angled view',
-        src: gender_reveal_a,
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/gender_reveal_a.jpeg',
         alt: 'Image of cake',
       },
       {
         id: 2,
         name: 'Angled view',
-        src: gender_reveal_b,
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/gender_reveal_b.jpeg',
         alt: 'Image of cake',
       },
       {
         id: 3,
         name: 'Angled view',
-        src: gender_reveal_c,
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/gender_reveal_c.jpeg',
+        alt: 'Image of cake',
+      },
+      // More images...
+    ],
+
+    description: `
+    <p>Pefect for people who like Cartoon cakes</p>
+  `,
+    details: [
+      {
+        name: 'Allergen Information',
+        items: [
+          'Made in a facility that processes peanuts',
+          '..',
+          '....',
+          'Anything Else about allergen',
+        ],
+      },
+      // More sections...
+    ],
+  },
+  mom_to_be: {
+    name: 'Mom to be Cake',
+    // price: '$140',
+    rating: 4,
+    images: [
+      {
+        id: 1,
+        name: 'Angled view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/mom_to_be_a.jpeg',
+        alt: 'Image of cake',
+      },
+      {
+        id: 2,
+        name: 'Angled view',
+        src: 'https://pub-d7f172149ef241b9bcaa2c4f68065c38.r2.dev/mom_to_be_b.jpeg',
         alt: 'Image of cake',
       },
       // More images...
@@ -164,20 +308,11 @@ export default function ImageGallery({ params }) {
             <Tab.Panels className="aspect-h-1 aspect-w-1 w-full">
               {product.images.map((image) => (
                 <Tab.Panel key={image.id}>
-                  {/* <img
+                  <img
                     src={image.src}
                     alt={image.alt}
                     className="h-full w-full object-cover object-center sm:rounded-lg"
-                  /> */}
-
-                  <Image
-                    src={image.src}
-                    quality={100}
-                    width={100}
-                    height={50}
-                    alt={image.alt}
-                    className="h-full w-full object-cover object-center sm:rounded-lg"
-                  ></Image>
+                  />
                 </Tab.Panel>
               ))}
             </Tab.Panels>
