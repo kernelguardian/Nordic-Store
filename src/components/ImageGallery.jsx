@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Button } from '@/components/Button'
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
@@ -412,6 +412,9 @@ export default function ImageGallery({ params }) {
                   </Disclosure>
                 ))}
               </div>
+              <Button className="bg-blue-600" href="https://forms.mk/v4Wcmc">
+                Place Order
+              </Button>
             </section>
           </div>
         </div>
