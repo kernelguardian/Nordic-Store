@@ -7,24 +7,6 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
-import andrewGreeneImage from '@/images/avatars/andrew-greene.jpg'
-import cathleneBurrageImage from '@/images/avatars/cathlene-burrage.jpg'
-import damarisKimuraImage from '@/images/avatars/damaris-kimura.jpg'
-import dianneGuilianelliImage from '@/images/avatars/dianne-guilianelli.jpg'
-import erhartCockrinImage from '@/images/avatars/erhart-cockrin.jpg'
-import giordanoSagucioImage from '@/images/avatars/giordano-sagucio.jpg'
-import gordonSandersonImage from '@/images/avatars/gordon-sanderson.jpg'
-import heatherTerryImage from '@/images/avatars/heather-terry.jpg'
-import ibrahimFraschImage from '@/images/avatars/ibrahim-frasch.jpg'
-import jaquelinIschImage from '@/images/avatars/jaquelin-isch.jpg'
-import kimberlyParsonsImage from '@/images/avatars/kimberly-parsons.jpg'
-import parkerJohnsonImage from '@/images/avatars/parker-johnson.jpg'
-import piersWilkinsImage from '@/images/avatars/piers-wilkins.jpg'
-import richardAstley from '@/images/avatars/richard-astley.jpg'
-import rinaldoBeynonImage from '@/images/avatars/rinaldo-beynon.jpg'
-import ronniCantadoreImage from '@/images/avatars/ronni-cantadore.jpg'
-import stevenMchailImage from '@/images/avatars/steven-mchail.jpg'
-import waylonHydenImage from '@/images/avatars/waylon-hyden.jpg'
 
 import cake1 from '@/images/cakes/cake1.jpeg'
 import cake2 from '@/images/cakes/cake2.jpeg'
@@ -32,127 +14,112 @@ import cake3 from '@/images/cakes/cake3.jpeg'
 import cake4 from '@/images/cakes/cake4.jpeg'
 import cake5 from '@/images/cakes/cake5.jpeg'
 import cake6 from '@/images/cakes/cake6.jpeg'
-
-import pastry1 from '@/images/pastry/pastry1.jpeg'
-import pastry2 from '@/images/pastry/pastry2.jpeg'
-import pastry3 from '@/images/pastry/pastry3.jpeg'
-import pastry4 from '@/images/pastry/pastry4.jpeg'
-import pastry5 from '@/images/pastry/pastry5.jpeg'
-import pastry6 from '@/images/pastry/pastry6.jpeg'
+import cartoon from '@/images/cakes/cartoon.jpeg'
+import unicorn_a from '@/images/cakes/unicorn_a.jpeg'
+import gender_reveal_a from '@/images/cakes/gender_reveal_a.jpeg'
+import celebrations from '@/images/cakes/celebrations.jpeg'
+import tuxedo_a from '@/images/cakes/tuxedo_a.jpeg'
+import tuxedo_b from '@/images/cakes/tuxedo_b.jpeg'
+import mom_to_be_a from '@/images/cakes/mom_to_be_a.jpeg'
+import whimsical_a from '@/images/cakes/whimsical_a.jpeg'
 
 const days = [
   {
     name: 'Special Cakes',
-    date: 'Just for you',
+    date: 'For special occasions',
     dateTime: '2022-04-04',
     speakers: [
       {
-        name: 'Rainbow Cake',
+        name: 'Unicorn Cake',
         role: 'Made with rainbows and sprinkles',
-        image: cake1,
+        image: unicorn_a,
       },
       {
-        name: 'Cupcakes Brown',
-        role: 'Made with brown sugar and chocolate chips',
-        image: cake2,
+        name: 'Cartoon Cake',
+        role: '...',
+        image: cartoon,
       },
       {
-        name: 'Dark Chocolate',
+        name: 'Celebration Cake',
         role: 'Dark chocolate cake with chocolate chips',
-        image: cake3,
+        image: celebrations,
       },
       {
-        name: 'Caramel Cake',
+        name: 'Gender Reveal Theme Cake',
         role: 'Made with caramel and cream',
-        image: cake4,
+        image: gender_reveal_a,
       },
       {
-        name: 'Cheese Cake',
+        name: 'Mom to be Cake',
         role: 'Made with cheese and cream',
-        image: cake5,
+        image: mom_to_be_a,
       },
       {
-        name: 'Black Forest Cake',
+        name: 'Tuxedo Cake',
         role: 'Made with black forest cherries and chocolate',
-        image: cake6,
+        image: tuxedo_a,
+      },
+      {
+        name: 'Whimsical Cake',
+        role: 'Made with black forest cherries and chocolate',
+        image: whimsical_a,
       },
     ],
   },
   {
-    name: 'Pastries',
-    date: 'Small bites',
+    name: 'Custom Cake',
+    date: 'Just for you',
     dateTime: '2022-04-05',
-    speakers: [
-      {
-        name: 'Ferrero Rocher Pastry',
-        role: 'Made with Ferrero Rocher chocolates',
-        image: pastry1,
-      },
-      {
-        name: 'Macaroons',
-        role: 'Made with almonds and sugar',
-        image: pastry2,
-      },
-      {
-        name: 'Cream Puffs',
-        role: 'Made with cream and sugar',
-        image: pastry3,
-        allergen: 'Contains nuts',
-      },
-      {
-        name: 'Pain Au Chocolat',
-        role: 'Made with chocolate and butter',
-        image: pastry4,
-      },
-      {
-        name: 'Red Velvet Pastry',
-        role: 'Made with red velvet and cream cheese',
-        image: pastry5,
-      },
-      {
-        name: 'Donut Sprinkles',
-        role: 'Made with donuts and sprinkles',
-        image: pastry6,
-      },
-    ],
+    speakers: [],
   },
-  {
-    name: 'Interviews',
-    date: 'April 6',
-    dateTime: '2022-04-06',
-    speakers: [
-      {
-        name: 'Andrew Greene',
-        role: 'Frontend Developer at Ultratech',
-        image: andrewGreeneImage,
-      },
-      {
-        name: 'Heather Terry',
-        role: 'Backend Developer at Xanatos Enterprises',
-        image: heatherTerryImage,
-      },
-      {
-        name: 'Piers Wilkins',
-        role: 'Full stack Developer at BiffCo',
-        image: piersWilkinsImage,
-      },
-      {
-        name: 'Gordon Sanderson',
-        role: 'Mobile Developer at Cobra Industries',
-        image: gordonSandersonImage,
-      },
-      {
-        name: 'Kimberly Parsons',
-        role: 'Game Developer at Tyrell Corporation',
-        image: kimberlyParsonsImage,
-      },
-      {
-        name: 'Richard Astley',
-        role: 'CEO at Roll Out',
-        image: richardAstley,
-      },
-    ],
-  },
+  // {
+  //   name: 'Pastries',
+  //   date: 'Small bites',
+  //   dateTime: '2022-04-05',
+  //   speakers: [
+  //     {
+  //       name: 'Ferrero Rocher Pastry',
+  //       role: 'Made with Ferrero Rocher chocolates',
+  //       image: pastry1,
+  //     },
+  //     {
+  //       name: 'Ferrero Rocher Pastry',
+  //       role: 'Made with Ferrero Rocher chocolates',
+  //       image: pastry1,
+  //     },
+  //     {
+  //       name: 'Ferrero Rocher Pastry',
+  //       role: 'Made with Ferrero Rocher chocolates',
+  //       image: pastry1,
+  //     },
+  //     {
+  //       name: 'Macaroons',
+  //       role: 'Made with almonds and sugar',
+  //       image: pastry2,
+  //     },
+  //     {
+  //       name: 'Cream Puffs',
+  //       role: 'Made with cream and sugar',
+  //       image: pastry3,
+  //       allergen: 'Contains nuts',
+  //     },
+  //     {
+  //       name: 'Pain Au Chocolat',
+  //       role: 'Made with chocolate and butter',
+  //       image: pastry4,
+  //     },
+  //     {
+  //       name: 'Red Velvet Pastry',
+  //       role: 'Made with red velvet and cream cheese',
+  //       image: pastry5,
+  //     },
+  //     {
+  //       name: 'Donut Sprinkles',
+  //       role: 'Made with donuts and sprinkles',
+  //       image: pastry6,
+  //     },
+  //   ],
+  // },
 ]
 
 function ImageClipPaths({ id, ...props }) {
@@ -211,6 +178,7 @@ export function Speakers() {
             Checkout our catalogue of Cakes
           </p>
         </div>
+
         <Tab.Group
           as="div"
           className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:mt-16 sm:gap-y-16 lg:mt-24 lg:grid-cols-4"
@@ -267,7 +235,12 @@ export function Speakers() {
               >
                 {day.speakers.map((speaker, speakerIndex) => (
                   <div key={speakerIndex}>
-                    <div className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl">
+                    <div
+                      className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl"
+                      onClick={(e) => {
+                        console.log('clicked', e)
+                      }}
+                    >
                       <div
                         className={clsx(
                           'absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
@@ -297,14 +270,13 @@ export function Speakers() {
                     <p className="mt-1 text-base tracking-tight text-slate-500">
                       {speaker.role}
                     </p>
-                    <p className="mt-1 text-base tracking-tight text-slate-400">
-                      <div className="mb-2 mt-2 w-full border-t border-gray-300"></div>
+                    {/* <p className="mt-1 text-base tracking-tight text-slate-400">
                       <span className="font-medium text-slate-500">
                         Allergen Information
                       </span>
                       <br></br>
                       {speaker.allergen}
-                    </p>
+                    </p> */}
                   </div>
                 ))}
               </Tab.Panel>

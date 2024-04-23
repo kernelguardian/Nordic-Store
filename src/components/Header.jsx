@@ -21,8 +21,13 @@ export function Header() {
             <p>Carlisle, Cumbria</p>
           </div>
         </div>
-        <div className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end">
-          <Button href="#">Order Now</Button>
+        <div className="hidden  gap-2 sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end">
+          <Button className="" href="#">
+            Order Now
+          </Button>
+          <Button className="bg-green-600" href="https://grocerhut.co.uk/">
+            Grocerhut
+          </Button>
         </div>
       </Container>
     </header>
