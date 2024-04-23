@@ -21,8 +21,7 @@ export const metadata = {
     template: '%s - Grocerhut Bakery',
     default: 'Grocerhut Bakery - A venture from Grocerhut',
   },
-  description:
-    'At DeceptiConf you’ll learn about the latest dark patterns being developed to trick even the smartest visitors, and you’ll learn how to deploy them without ever being detected.',
+  description: 'Grocerhut Bakery Store',
 }
 
 export default function RootLayout({ children }) {
